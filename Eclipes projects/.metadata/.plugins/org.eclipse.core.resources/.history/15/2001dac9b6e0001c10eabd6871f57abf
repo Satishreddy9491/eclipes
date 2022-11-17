@@ -1,0 +1,20 @@
+package test;
+import java.sql.*;
+
+public class Helo {
+public static void main(String[] args) throws Exception{
+	String url="jdbc:myql://localhost:3306/satish1";
+	String uname="root";
+	String pass="";
+	String query="SELECT * FROM satish1.department;";
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	Connection con=DriverManager.getConnection(url,uname,pass);
+	Statement st=con.createStatement();
+	ResultSet Rest=st.executeQuery(query);
+	Rest.next();
+	String s=Rest.getString("username");
+	System.out.println(s);
+	st.close();
+	con.close();
+	}
+}

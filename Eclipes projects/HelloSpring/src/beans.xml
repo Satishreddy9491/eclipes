@@ -1,0 +1,146 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+   <bean id = "helloWorld" class = "com.tutorialspoint.HelloWorld">
+      <property name = "message" value = "Hello World!"/>
+   </bean>
+   <bean id="a1" class="Employee.Address">
+		<constructor-arg value="Sirigiriapalli"></constructor-arg>
+		<constructor-arg value="Ap"></constructor-arg>
+		<constructor-arg value="India"></constructor-arg>
+	</bean>
+	<bean id="e" class="Employee.Details">
+		<constructor-arg value="12" type="int"></constructor-arg>
+		<constructor-arg value="Reddy"></constructor-arg>
+		<constructor-arg>
+			<ref bean="a1" />
+		</constructor-arg>
+	</bean>
+	<context:component-scan base-package="Employee"></context:component-scan>
+	<bean id="a" class="Emplo.Employee">  
+<constructor-arg value="Satish"></constructor-arg>  
+</bean>  
+<bean id="studentbean" class="Javatpoint.Student">  
+<property name="name" value="Satish reddy"></property>  
+</bean> 
+
+	<bean id= "question" class ="package1.Question">
+	<constructor-arg value ="1"></constructor-arg>
+	<constructor-arg value ="What is java ?"></constructor-arg>
+	<constructor-arg >
+	<list>
+	<value> Java is a programming </value>
+	<value> Java is platform independent</value>
+	<value> Java is Object-oriented programming language </value>
+	</list>
+	</constructor-arg>
+	
+	</bean>
+	<bean id="ans1" class="package2.Answer" >
+	<constructor-arg value="1"></constructor-arg>
+	<constructor-arg value="Java is programming language"></constructor-arg>
+	<constructor-arg value="Satish"></constructor-arg>
+	</bean>
+
+	<bean id="ans2" class="package2.Answer">
+	<constructor-arg value="2"></constructor-arg>
+	<constructor-arg value="Java is a Platform independent"></constructor-arg>
+	<constructor-arg value="Reddy"></constructor-arg>
+	</bean>
+
+	<bean id="questioN" class="package2.Question"> 
+	<constructor-arg value="1"></constructor-arg>
+	<constructor-arg value="What is java"></constructor-arg>
+	<constructor-arg>
+		<list>
+		<ref bean="ans1"></ref>
+		<ref bean="ans2"></ref>
+		</list>
+	
+	</constructor-arg>
+	</bean>
+
+	<bean id="questi" class="package3.Question">
+	<constructor-arg value="1"/>
+	<constructor-arg value="what is java ?"/>
+	<constructor-arg>
+	<map>
+		<entry key="java programming language" value=" Venakta"></entry>
+		<entry key="Java is platform independent" value="Reddy	" ></entry>
+		<entry key ="java is widely used in object-oriented programming language" value="Satish"></entry>
+	</map>
+	</constructor-arg>
+	</bean>
+	
+	<bean id="employe" class="package4.Employee">
+	<constructor-arg value="1"></constructor-arg>
+	<constructor-arg value="Satish"></constructor-arg>
+	</bean>
+	
+	<bean id="address1" class="package4.Address">
+	<constructor-arg value="Sirigiripalli"></constructor-arg>
+	<constructor-arg value="Kadapa"></constructor-arg>
+	<constructor-arg value="AndhraPradesh"></constructor-arg>
+	<constructor-arg value="INDIA"></constructor-arg>
+	</bean>
+	
+	<bean id="employeeTest" class="package4.Employee" parent="employe">
+	<constructor-arg ref="address1"></constructor-arg>
+	</bean>
+	
+<bean id="obj" class="package5.Employee">  
+<property name="id">  
+<value>20</value>  
+</property>  
+<property name="name">  
+<value>Satish</value>  
+</property>  
+<property name="city">  
+<value>Kadapa</value>  
+</property>  
+
+</bean>
+
+<bean id="addres" class="package6.Address">  
+<property name="addressLine1" value="Lohianagar"></property>  
+<property name="city" value="Ghaziabad"></property>  
+<property name="state" value="UP"></property>  
+<property name="country" value="India"></property>  
+</bean>  
+  
+<bean id="ob" class="package6.Employee">  
+<property name="id" value="1"></property>  
+<property name="name" value="Sachin Yadav"></property>  
+<property name="address1" ref="addres"></property>  
+</bean>  
+
+<bean id="b" class="package7.Question">
+<property name="id" value="1"></property>
+<property name="name" value="What is java"></property>
+<property name="answers">
+<list>
+<value>java is programming language</value>
+<value>java is a platform independent</value>
+</list>
+</property>
+
+</bean>
+
+<bean id ="byname" class="autoWaring.ByName"></bean>
+<bean id="referenceofbyname" class="autoWaring.ReferenceOfByName" autowire="byName"></bean>
+		  
+
+ 
+	
+</beans>
